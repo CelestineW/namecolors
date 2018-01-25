@@ -13,12 +13,37 @@
 	</head>
     
     <body>
-    	<h1>Hello, world!</h1>
+    	<h2 id='title' style="text-align: center; padding-top: 5%;">Convert Your Name to a Color</h2>
 
+    	<div style="padding: 20%">
+			<div class="input-group mb-3" style="text-align:center;">
+			  <input type="text" class="form-control" placeholder="Name or Phrase" aria-describedby="basic-addon2" id="name">
+			  <div class="input-group-append">
+			    <button class="btn btn-secondary" onclick="getHexColor()" type="button">Convert
+			    </button>
+			  </div>
+			</div>
+		</div>
+
+		<script>
+
+			function getHexColor(){
+
+				var user_name = document.getElementById('name').value;
+
+				// convert name to color
+			
+				if (user_name.length % 2 == 0){
+
+					document.body.style.backgroundColor = "#AA0000";
+				}
+
+			}
+			
+
+		</script>
 
     	
-
-
 
 
     	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
