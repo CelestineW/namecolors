@@ -17,7 +17,7 @@
 
     	<div style="padding: 20%">
 			<div class="input-group mb-3" style="text-align:center;">
-			  <input type="text" class="form-control" placeholder="Name or Phrase" aria-describedby="basic-addon2" id="name">
+			  <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon2" id="name">
 			  <div class="input-group-append">
 			    <button class="btn btn-secondary" onclick="getHexColor()" type="button">Convert
 			    </button>
@@ -27,16 +27,49 @@
 
 		<script>
 
+			const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+
 			function getHexColor(){
 
 				var user_name = document.getElementById('name').value;
 
-				// convert name to color
-			
-				if (user_name.length % 2 == 0){
+				var intervals = user_name.length / 3;
 
-					document.body.style.backgroundColor = "#AA0000";
-				}
+				var r = user_name.slice(0, intervals).split("");
+				var g = user_name.slice(intervals, intervals * 2).split("");
+				var b = user_name.slice(intervals * 2).split("");
+
+				r.forEach(function(letter, index, arr){
+					arr[index] = letter.charCodeAt();
+				});
+
+				g.forEach(function(letter, index, arr){
+					arr[index] = letter.charCodeAt();
+				});
+
+				b.forEach(function(letter, index, arr){
+					arr[index] = letter.charCodeAt();
+				});
+
+				console.log(r);
+				console.log(g);
+				console.log(b);
+
+				r_val = r.reduce(reducer);
+				g_val = g.reduce(reducer);
+				b_val = b.reduce(reducer);
+
+				console.log(r_val);
+				console.log(g_val);
+				console.log(b_val);
+
+				console.log(r_val.toString(16));
+				console.log(g_val.toString(16));
+				console.log(b_val.toString(16));
+
+
+
 
 			}
 			
